@@ -14,3 +14,7 @@ RUN echo "extension=mongodb.so" >> /usr/local/etc/php/conf.d/mongodb.ini
 # Xdebug
 RUN pecl install xdebug-3.1.2
 ADD xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+COPY ./entrypoint.sh /
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["php-fpm"]
